@@ -1,37 +1,47 @@
-// console.log('Start ticking...')
 
 
-setInterval(showTime, 1000);
-function showTime() {
-    let time = new Date();
-    let hour = time.getHours();
-    let min = time.getMinutes();
-    let sec = time.getSeconds();
-    am_pm = "AM";
-  
-    if (hour > 12) {
-        hour -= 12;
-        am_pm = "PM";
+var hour=document.getElementById('hours'); // 0 - 23
+var minute=document.getElementById('minutes'); // 0 - 59
+var second=document.getElementById('seconds'); // 0 - 59
+var ampm=document.getElementById('am_pm');
+ 
+function getCurrentTime(){
+    var date=new Date();
+    var h=date.getHours();
+    var m=date.getMinutes();
+    var s=date.getSeconds();
+    var session="AM";
+    let moon = document.getElementsByClassName('moon')[0];
+    let sun = document. getElementsByClassName('sun')[0];
+
+    //console.log(h > 7 && h < 19, "white");
+    //console.log(h > 19 && h < 7, "black");
+
+    if(h == 0){
+        h = 12;
     }
-    if (hour == 0) {
-        hr = 12;
-        am_pm = "AM";
+    
+    if(h > 12){
+        h = h - 12;
+        session = "PM";
     }
-  
-    hour = hour < 10 ? "0" + hour : hour;
-    min = min < 10 ? "0" + min : min;
-    sec = sec < 10 ? "0" + sec : sec;
-  
-    let currentTime = hour + ":" 
-            + min + ":" + sec + am_pm;
-  
-    document.getElementById("clock")
-            .innerHTML = currentTime;
+     
+    if (h > 7 && h < 19) {
+        sun.style.display = "block";
+      } else {
+        moon.style.display = "block";
+      }
+
+    if(h<10) h='0'+h;
+    if(m<10) m='0'+m;
+    if(s<10) s='0'+s;
+     
+    hour.innerHTML=h;
+    minute.innerHTML=m;
+    second.innerHTML=s;
+    ampm.innerHTML=session;
 }
-
-
-showTime();
-
+setInterval('getCurrentTime()',1000);
 
 
 
