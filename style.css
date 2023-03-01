@@ -3,29 +3,35 @@
 }
 
 body {
-  font-size: 22px;
+  font-size: 200px;
+  font-weight: 600;
   line-height: 1.5;
   font-family: Helvetica, sans-serif;
-  color: #111;
+  color: rgba(66, 100, 62, 0.548);
   margin: 0;
   padding: 20px 40px;
+  
 
   /* This will center anything on your page */
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+
 }
 
-.clock {
+#clock {
   display: flex;
-  gap: 20px;
-  padding: 20px 30px;
+  gap: 10px;
+  margin-left: -10px;
+  padding: 10px 50px;
   text-align: center;
-  border: 2px solid black;
-  border-radius: 10px;
+  border: 31px solid rgba(66, 100, 62, 0.447);
+  border-style:ridge ;
+  box-shadow: 10px, 10px black;
+  border-radius: 40px;
+  background: radial-gradient(#f6d266ba,#5a491ca4);
 }
-
-.time {
-  
-}
+#icon{
+  padding-left: 10px;
+} 
